@@ -1,0 +1,39 @@
+type Usuario = 
+ record {
+   apellidom: text;
+   apellidop: text;
+   nombre: text;
+   telefono: text;
+ };
+type Productos = 
+ record {
+   caducidad: text;
+   descripcion: text;
+   existencia: text;
+   marca: text;
+   nombrep: text;
+   precio: text;
+ };
+service : {
+  actualizarProductos: (text, text, text, text, text, text, text) -> (bool);
+  actualizarUsuario: (text, text, text, text, text) -> (bool);
+  buscarProducto: () -> (vec record {
+                               text;
+                               Productos;
+                             }) query;
+  buscarProductosid: (text) -> (opt Productos) query;
+  buscarUsuarios: () -> (vec record {
+                               text;
+                               Usuario;
+                             }) query;
+  buscarUsuariosid: (text) -> (opt Usuario) query;
+  crearProducto: (text, text, text, text, text, text) -> ();
+  crearUsuario: (text, text, text, text) -> ();
+  eliminarProducto: (text) -> (bool);
+  eliminarUsuario: (text) -> (bool);
+  identificacionProductos: (text) -> (text);
+  listaProductos: (text) -> (text);
+  pagoProducto: (text) -> (text);
+  ventasProducto: (text) -> (text);
+  verificarCuentaUsuario: (text) -> (text);
+}
